@@ -1,25 +1,31 @@
-## Informační systém pro včelařství🐝🐝🐝
-Tento projekt ukazuje celý životní cyklus návrhu a implementace relační databáze v doméně včelařství. Zahrnuje konceptuální modelování, návrh relačního schématu, implementaci v PostgreSQL a integraci s Java aplikací.
+## Beekeeping Information System 🐝🐝🐝
 
-### 1. Konceptuální model(sql3.pdf)
-Osm hlavních entit: Uživatel, Osobní údaje, Zákazník, Včelař, Med, Sklenice, Komentář, Včelí úl + asociační entita Doporučil.  
-Obsahuje slabé entity (např. Osobní údaje závislé na Uživateli), rekurzivní vazby (včelař spolupracující s jiným včelařem), dědičnost (Uživatel jako nadtřída pro Zákazníka a Včelaře) a složené identifikátory.
+This project demonstrates the full lifecycle of relational database design and implementation in the beekeeping domain. It includes conceptual modeling, relational schema design, implementation in PostgreSQL, and integration with a Java application.
 
-### 2. Relační model a databázová implementace
-Model byl převeden do relačního schématu s odpovídajícími tabulkami v PostgreSQL.  
-Byly zachovány všechny klíčové vztahy: 1:1, 1:N, N:M i rekurzivní vazby.  
-Byla vložena ukázková data pro testování a připraveny SQL dotazy demonstrující joiny, agregace, vnořené selecty, množinové operace a stránkování.
+### 1. Conceptual model (sql3.pdf)
 
-### 3. Pokročilé databázové prvky(sql4.pdf)
-Trigger: Zabraňuje smazání včelaře, pokud má přiřazen alespoň jeden úl.  
-Transakce: Ukazuje změnu role uživatele převedením včelaře na zákazníka v rámci serializovatelné transakce.  
-Pohledy: Umožňují zjednodušený přístup k filtrovaným datům (např. sklenice s určitým druhem a množstvím medu).  
-Indexy: Zrychlují vyhledávání podle vybraných atributů, např. složení medu.
+Eight main entities: User, Personal Data, Customer, Beekeeper, Honey, Jar, Comment, Beehive + the associative entity Recommended.
+It contains weak entities (e.g. Personal Data dependent on User), recursive relationships (a beekeeper collaborating with another beekeeper), inheritance (User as a superclass for Customer and Beekeeper), and composite identifiers.
 
-### 4. Integrace s Javou
-Relační schéma bylo propojeno s Java projektem v IntelliJ IDEA.  
-Entity byly namapovány na databázové tabulky pomocí JPA/Hibernate.  
-Byly implementovány DAO třídy pro práci s databází a zapouzdření perzistentní logiky.
+### 2. Relational model and database implementation
 
-### 5. Účel projektu
-Projekt slouží jako případová studie databázového návrhu a softwarového inženýrství. Spojuje konceptuální modelování, relační implementaci a aplikační vývoj do jednoho celku.
+The model was transformed into a relational schema with corresponding tables in PostgreSQL.
+All key relationships were preserved: 1:1, 1:N, N:M, as well as recursive relationships.
+Sample data was inserted for testing, and SQL queries were prepared demonstrating joins, aggregations, nested selects, set operations, and pagination.
+
+### 3. Advanced database elements (sql4.pdf)
+
+Trigger: Prevents the deletion of a beekeeper if at least one beehive is assigned to them.
+Transaction: Demonstrates a change of user role by converting a beekeeper into a customer within a serializable transaction.
+Views: Provide simplified access to filtered data (e.g. jars with a specific type and amount of honey).
+Indexes: Improve search performance based on selected attributes, such as honey composition.
+
+### 4. Java integration
+
+The relational schema was connected to a Java project in IntelliJ IDEA.
+Entities were mapped to database tables using JPA/Hibernate.
+DAO classes were implemented for database operations and encapsulation of persistent logic.
+
+### 5. Purpose of the project
+
+The project serves as a case study of database design and software engineering. It combines conceptual modeling, relational implementation, and application development into a single cohesive system.
